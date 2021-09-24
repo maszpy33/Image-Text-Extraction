@@ -1,0 +1,10 @@
+# ignore file extensions
+*.png
+*.jpg
+
+# ignore files
+.env
+.DS_Store
+
+# ignore dir
+__pychache__
