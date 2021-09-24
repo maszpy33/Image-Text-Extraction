@@ -1,6 +1,7 @@
 # ignore file extensions
 *.png
 *.jpg
+*.txt
 
 # ignore files
 .env
