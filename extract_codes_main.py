@@ -4,13 +4,15 @@ import time
 import re
 import pyautogui
 import os
+import pync
 
 SCREENSHOT_NAME = "my_screenshot.png"
 
 
 def regexMatch(word: str) -> (bool, str):
     # \w matches a-z, A-Z and 0-9
-    pattern = re.compile(r"\w\w\w\w\w[-]\w\w\w\w\w")
+    # pattern = re.compile(r"\w\w\w\w\w[-]\w\w\w\w\w")
+    pattern = re.compile(r"[A-Z]{5}[-][A-Z]{5}")
 
     if (re.search(pattern, word)):
         print("valid code")
@@ -58,6 +60,13 @@ if __name__ == "__main__":
         
         # extract code from string with regex
         is_valid_code, code = regexMatch(text)
+        if is_valid_code:
+            # Save the code to the clipboard
+            os.system("echo '%s' | pbcopy" % code)
+
+            # notification if a valid code is found -> by click on show in the 
+            # notification window google will be opened automatically 
+            pync.notify("Code {0} is in clipboard".format(code), open='http://google.com/')
 
         # write code to txt file
         writeToFile(code)
@@ -66,4 +75,4 @@ if __name__ == "__main__":
         end = time.time() 
         print("Time needed: {0}sec".format(round(end-start, 4)))
 
-        time.sleep(4)
+        # time.sleep(4)
