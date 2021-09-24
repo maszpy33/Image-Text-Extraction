@@ -5,7 +5,6 @@ import re
 import pyautogui
 import os
 
-SCREENSHOT_PATH_NAME = "/Users/andreaszwikirsch/Desktop/6_Python/notebooks.nosync/projects/PyTesseract-Test/my_screenshot.png"
 SCREENSHOT_NAME = "my_screenshot.png"
 
 
